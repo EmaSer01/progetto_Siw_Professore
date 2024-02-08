@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+	<title>
+		Login Page
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/css/style.css" />
+</head>	
+	
+	
+<body class="c">
+<img class="sfondoLogin"  src="images/ultima.png" alt="questa è un immagine">
+
+<div id="loginMenu">
+<h1 class="itemLogin"> Login </h1>
+<form th:action="@{/login}" method="post"> 
+	<p>
+	<div class="itemLogin">
+		<span>Username: </span>
+		<span> <input name="username" type="text" required /></span>
+	</div>
+	</p>
+	<p>
+	<div class="itemLogin">
+		<span>Password: </span>
+		<span> <input name="password" type="password" required /></span>
+	</div>	
+	</p>
+	<div>
+		<span class="itemLogin"><button class="itemLogin" type="submit"> Login </button></span>
+	</div>	
+</form>
+
+<form th:action="@{/register}" method="get">
+		<span class="itemRegister"><button class="itemRegister" type="submit"> Register </button></span>
+</form>
+</div>
+
+</body>
+</html>

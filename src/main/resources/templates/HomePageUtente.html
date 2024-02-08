@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HomePage Utente</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="colorPageUtente">
+	
+<header  id="riquadroUtente">
+		<div th:if="${utente}">
+			<a href="/logout">Logout</a>
+			<span  th:text="${utente.username}"></span>
+		</div>
+		<div th:unless="${utente}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+	
+	
+	<h1> HOME PAGE: </h1>
+	
+	<p></p>
+	<h3>Lista delle Squadre:</h3>
+	<p></p>
+	
+	<div th:if="${squadre.isEmpty()}">Non Ci sono Squadre Registrate!</div>
+	<div th:unless="${squadre.isEmpty()}">
+	<ul>
+	<li th:each="squadra : ${squadre}"
+	 	th:text="'Nome: ' + ${squadra.nome} + ', Anno Di Fondazione: '+ ${squadra.annoFondazione} + ', Indirizzo Sede: ' + ${squadra.indirizzoSede} +'.'" >
+	</li>
+	</ul>
+	</div>
+	
+	
+</body>
+
+</html>

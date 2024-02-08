@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Modifica Squadra - ADMIN</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>	
+
+
+	
+<body class="colorPageUpdate">
+	
+
+<div id="update-container">	
+	
+	<h1> Seleziona Squadra di cui vuoi Aggionare i dati: </h1>
+	<div th:if="${squadre.isEmpty()}">Non ci sono squadre nel Database.</div>
+	<div th:unless="${squadre.isEmpty()}">
+	<ul th:each="squadra: ${squadre}">
+		<li><a th:href="@{'/admin/' + ${squadra.nome}}" 
+			   th:text="@{'Nome Squadra: ' + ${squadra.nome}}">...</a></li>
+	</ul>
+	</div>
+	
+	<p></p>
+	<form th:action="@{'/'}" method="get">	
+	<div>
+		<button type="submit"> Torna all'HomePage</button>
+	</div>
+	</form>
+</div>
+
+
+</body>	
+	
+
+	
+</html>
+	
+	

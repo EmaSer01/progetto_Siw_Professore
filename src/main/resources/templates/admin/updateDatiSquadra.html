@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Update Squadra - ADMIN: </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css" />
+	</head>
+	
+	
+	
+	<body class="colorPageUpdate">
+		
+		<div id="update-container">	
+		
+		<h1> Modifica Squadra: </h1>
+		<!-- Scrivendo nella form, solo il method, prende l'URL corrente-->
+		<form th:action="@{'/admin/' + ${squadra2.id}}" method="POST">
+			
+			<div th:object="${squadra}">
+				
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+			
+			<p></p>
+				
+			<div>	
+		<strong>Modifica Nome Squadra: </strong>   <input type="text" th:field="*{nome}">
+		<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span> 
+			</div>
+			<p></p>
+			<div>	
+		<strong>Modifica Anno Di Fondazione: </strong>   <input type="text" th:field="*{annoFondazione}">
+		<span th:if="${#fields.hasErrors('annoFondazione')}" th:errors="*{annoFondazione}"></span>
+			</div>
+			<p></p>
+			<div>	
+		<strong>Modifica Indirizzo di Sede: </strong>   <input type="text" th:field="*{indirizzoSede}">
+		<span th:if="${#fields.hasErrors('indirizzoSede')}" th:errors="*{indirizzoSede}"></span>
+			</div>
+		<p></p>
+			</div>
+			<div>
+		<strong>Modifica Presidente: </strong> 
+			<select required name="presidenteSquadra">
+					<option value="*{squadra2.getPresidente().getCodiceFiscale()}"> Scegli un Presidente</option>
+				<span th:each="presidente : ${lista}">
+					<option th:value="*{presidente.codiceFiscale}">
+						<span th:text="*{presidente.nome} + ' ' + *{presidente.cognome} + ', ' + *{presidente.citta}"> </span>
+					</option>
+				</span>
+			</select>
+			</div>		
+			<p></p>
+		
+		
+		
+		<button type="submit"> Conferma Modifica Squadra </button>
+		
+		</form>
+		
+				
+
+		<form th:action="@{'/'}" method="get">
+			<div>
+				<button type="submit"> Torna all'HomePage</button>
+			</div>
+		</form>
+	
+	
+		</div>	
+	</body>
+	
+	
+</html>

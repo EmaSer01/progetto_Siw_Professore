@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HomePage Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body  class="colorPage">	
+	
+	<header  id="riquadroUtente">
+		<div th:if="${utente}">
+			<a href="/logout">Logout</a>
+			<span  th:text="${utente.username}"></span>
+		</div>
+		<div th:unless="${utente}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+
+	<h1> HOME PAGE ADMIN: </h1>
+	
+<div>
+	<p></p>
+	<h3>OPERAZIONI: </h3>
+	<p></p>
+	<li><a href="/admin/formGetAggiungiSquadra">Aggiungi una Squadra</a></li>
+	<p></p>
+	<li><a href="/admin/formGetModificaSquadra">Modifica Squadra</a></li>
+	<p></p>
+	<li><a href="/admin/aggiungiGiocatore">Aggiungi Giocatore</a></li>
+	<p></p>
+	<li><a href="/admin/formGetAggiungiPresidente">Aggiungi Presidente</a></li>
+
+</div>
+</body>
+
+</html>

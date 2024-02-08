@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Registrazione effettuata</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="colorPageUpdate">
+
+
+	
+	<header id="riquadroUtente">
+		<div th:if="${cred}">
+			<a href="/logout">Logout</a>
+			<span th:text="${cred.username}"></span>
+		</div>
+		<div th:unless="${cred}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+<div id="update-container">	
+	<h1>Congratulazioni ti sei registrato!</h1>
+	<div>
+		<strong>Nome: </strong>
+		<span th:text="${utente.name}"></span>
+	</div>
+	<div>
+		<strong>Cognome: </strong>
+		<span th:text="${utente.surname}"></span>
+	</div>
+	<div>
+		<strong>Email: </strong>
+		<span th:text="${utente.email}"></span>
+	</div>
+	<form th:action="@{/}" method="get">
+		<button type="submit">Torna alla HomePage</button>
+	</form>
+	
+</div>
+</body>
+</html>

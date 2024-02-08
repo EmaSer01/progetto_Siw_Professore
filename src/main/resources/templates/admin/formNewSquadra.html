@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aggiungi Squadra - ADMIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="colorPageForm">
+	
+<div id="squadra-container">	
+
+<div class="posiziona" th:if="${lista.isEmpty()}"> <strong>Aggiungere prima un Presidente a cui non e' associata nessuna squadra </strong> 
+
+	<form th:action="@{/}" method="get">
+		<button class="button" type="submit">Torna alla HomePage</button>
+	</form>
+	
+</div>
+
+<div th:unless="${lista.isEmpty()}">
+	<h1>Aggiungi una Squadra al database</h1>
+	<form th:action="@{'/admin/formPostAggiungiSquadra'}" method="POST">		
+		
+		
+		<div  th:object="${squadra}">
+			
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+		<p></p>
+		<div>
+		<strong>Nome: </strong> <input type="text" th:field="*{nome}">
+		<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+		</div>
+		<p></p>
+		<div>
+		<strong>Indirizzo di Sede: </strong> <input type="text" th:field="*{indirizzoSede}">
+		<span th:if="${#fields.hasErrors('indirizzoSede')}" th:errors="*{indirizzoSede}"></span>
+		</div>
+		<p></p>
+		<div>
+		<strong>Anno di Fondazione: </strong><input type="text" th:field="*{annoFondazione}">
+		<span th:if="${#fields.hasErrors('annoFondazione')}" th:errors="*{annoFondazione}"></span>
+		</div>
+		</div>
+		
+		<p></p>
+		
+			<h2>Aggiungi Presidente: </h2><!-- Aggiungo presidente nella stessa form-->
+			<select required name="presidenteSquadra">
+					<option value=""> Scegli un Presidente</option>
+				<span th:each="presidente : ${lista}">
+					<option th:value="*{presidente.codiceFiscale}">
+						<span th:text="*{presidente.nome} + ' ' + *{presidente.cognome} + ', ' + *{presidente.citta}"> </span>
+					</option>
+				</span>
+			</select>
+		<p></p>
+				
+		
+	
+			<button type="submit">Aggiungi Squadra</button>
+		
+	</form>
+	
+	
+	<form th:action="@{/}" method="get">
+		<button class="button3" type="submit">Torna alla HomePage</button>
+	</form>
+</div>
+	<p></p>
+	<p></p>
+	<p></p>
+	
+</div>
+</body>
+</html>

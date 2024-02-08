@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Registration Page
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="colorPageUpdate" >
+	
+	
+	<h1 class="titolo">Registrazione nuovo Presidente</h1>
+	
+	<div id="riquadro">
+	<form th:action="@{/register}" method="POST">
+		
+		
+	<div th:object="${utente}">	
+		
+	<div th:if="${#fields.hasGlobalErrors()}">
+		 <li class="itemErrori" th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+	</div>
+	
+	</div>
+	<div th:object="${credenziali}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li class="itemErrori" th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+			
+	</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Nome: </label>
+			<span><input type="text" placeholder="Nome" th:field="${utente.name}" /></span>
+				<span class="itemErrori"  th:if="${#fields.hasErrors('utente.name')}" th:errors="*{utente.name}"></span>
+		</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Cognome: </label>
+			<span><input type="text" placeholder="Cognome" th:field="${utente.surname}" /></span>
+			<span class="itemErrori" th:if="${#fields.hasErrors('utente.surname')}" th:errors="*{utente.surname}"></span>
+		</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Email: </label>
+			<span><input type="text" placeholder="Email" th:field="${utente.email}" /></span>
+			<span class="itemErrori" th:if="${#fields.hasErrors('utente.email')}" th:errors="*{utente.email}"></span>
+		</div>
+		
+		
+		
+		<p></p>
+		<div class="itemLogin">
+			<label>Username: </label>
+			<span><input type="text" placeholder="Username" th:field="${credenziali.username}" readonly/></span>
+			<span class="itemErrori" th:if="${#fields.hasErrors('credenziali.username')}" th:errors="*{credenziali.username}"></span>
+		</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Password: </label>
+			<span><input type="password" placeholder="Password" th:field="${credenziali.password}" /></span>
+			<span class="itemErrori" th:if="${#fields.hasErrors('credenziali.password')}" th:errors="*{credenziali.password}"></span>
+		</div>
+		
+		<p>
+		<div class="itemLogin">
+			<button type="submit">Registra</button>
+		</div>
+		</p>
+	</form>
+	
+	<form th:action="@{'/'}" method="get">
+		<button class="but" type="submit"> Torna all'HomePage</button>
+	</form>
+	
+</div>
+
+
+
+</body>
+
+</html>

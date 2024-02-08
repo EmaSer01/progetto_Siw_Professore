@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+ 
+ <title> Tesserametno Giocatore </title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+
+
+<body class="colorPageTesseramento">
+
+	
+	<header  id="riquadroUtente">
+		<div th:if="${utente}">
+			<a href="/logout">Logout</a>
+			<span  th:text="${utente.username}"></span>
+		</div>
+		<div th:unless="${utente}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+	
+<div id="tesseramento-container">
+	<h1> Tesseramento giocatore:</h1>
+	
+	<form th:action="@{'/presidente/tesseramentoGiocatore/'+ ${squadra.id} + '/'+ ${giocatore.id}}" method="post" >
+	
+	<div th:object="${tesseramento}">
+	
+	<strong>	
+	<div th:if="${#fields.hasGlobalErrors()}">
+		<li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+	</div>
+	</strong>
+	
+	<p></p>
+	<div>
+		<strong>Data inizio tesseramento: </strong> 
+		<input type="date" th:field="${tesseramento.inizioTesseramento}" 
+			min="2024-01-01">
+	</div>
+	
+	<p></p>
+	<div>
+		<strong>Data fine tesseramento: </strong> 
+		<input type="date" th:field="${tesseramento.fineTesseramento}"
+			min="2024-01-02" max="2060-12-30">
+	</div>
+	
+	<p></p>
+	</div>
+	
+		<button type="submit" >Conferma Tesseramento</button>
+	
+	
+	</form>
+	
+	<p></p>
+	<form th:action="@{/}" method="get">
+		<button type="submit" >Torna alla Home Page</button> 
+	</form>
+	<p></p>
+</div>
+	
+</body>

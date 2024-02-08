@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aggiungi Presidente - ADMIN</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="colorPagePresidente">
+	
+
+<div id="presidente-container">
+	<h1>Aggiungi una Presidente al database</h1>
+	<form th:action="@{'/admin/formPostAggiungiPresidente'}" method="POST">		
+		
+			
+		<p></p>
+			<h2>Aggiungi Presidente: </h2><!-- Aggiungo presidente nella stessa form-->
+		
+		
+		<div th:object="${presidente}" >  <!--Inserisco tutto all'interno dell'oggetto presidente-->
+			
+		
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li class="itemErrori" th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+			
+		<p></p>
+
+	
+		<div class="itemLogin">	
+		<strong>Nome: </strong>  <input type="text" th:field="*{nome}">
+			<span class="itemErroriPresidente" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span> 			
+		</div>
+		<p></p>
+		
+		<div class="itemLogin">
+			<strong>Cognome: </strong>  <input type="text" th:field="*{cognome}">
+		<span class="itemErroriPresidente" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+		</div>
+		<p></p>
+		
+		<div class="itemLogin">
+			<strong>Codice Fiscale: </strong>  <input type="text" th:field="*{codiceFiscale}">
+		<span class="itemErroriPresidente" th:if="${#fields.hasErrors('codiceFiscale')}" th:errors="*{codiceFiscale}"></span>
+		</div>
+		<p></p>
+		
+		<div class="itemLogin">
+			<strong>Luogo di Nascita: </strong>  <input type="text" th:field="*{citta}">
+		<span class="itemErroriPresidente" th:if="${#fields.hasErrors('citta')}" th:errors="*{citta}"></span>	
+		</div>
+		<p></p>
+		
+		<div class="itemLogin">
+			<strong>Anno di Nascita: </strong>  <input type="date" th:field="*{anno}" value="" 
+				min="1980-01-01" max="2018-12-31" />
+		<span class="itemErroriPresidente" th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
+		</div>
+		<p></p>
+		
+		<div class="itemLogin">
+			<strong>Username: </strong> <input type="text" th:field="*{username}">
+		<span class="itemErroriPresidente" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>	
+		</div>
+		
+</div>		
+
+	
+		
+			<button  type="submit">Aggiungi Presidente</button>
+		
+	</form>
+	<p></p>
+	
+	<form th:action="@{/}" method="get">
+		<button  type="submit">Torna alla HomePage</button>
+	</form>
+	<p></p>
+	
+</div>
+	
+</body>
+</html>

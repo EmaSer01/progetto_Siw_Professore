@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Registration Page Presidente
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="colorPageUpdate">
+
+<div id="update-container">	
+
+	<h1>Registrazione nuovo utente</h1>
+	<form th:action="@{/register}" method="POST">
+		
+		
+	<div th:object="${utente}">	
+		
+	<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+	</div>
+	
+	</div>
+	<div th:object="${credenziali}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+			
+	</div>
+		<p></p>
+		<div>
+			<div>Nome</div>
+			<span><input type="text" placeholder="${utente.name}"  th:field="${utente.name}" readonly/></span>
+				<span th:if="${#fields.hasErrors('utente.name')}" th:errors="*{utente.name}"></span>
+		</div>
+		<p></p>
+		<div>
+			<label>Cognome</label>
+			<span><input type="text" placeholder="${utente.surname}" th:field="${utente.surname}" readonly/></span>
+			<span th:if="${#fields.hasErrors('utente.surname')}" th:errors="*{utente.surname}"></span>
+		</div>
+		<p></p>
+		<div>
+			<label>Email</label>
+			<span><input type="text" placeholder="email" th:field="${utente.email}" /></span>
+			<span th:if="${#fields.hasErrors('utente.email')}" th:errors="*{utente.email}"></span>
+		</div>
+		
+		
+		
+		<p></p>
+		<div>
+			<label>Username</label>
+			<span><input type="text" placeholder="${credenziali.username}" th:field="${credenziali.username}" readonly/></span>
+			<span th:if="${#fields.hasErrors('credenziali.username')}" th:errors="*{credenziali.username}"></span>
+		</div>
+		<p></p>
+		<div>
+			<label>Password</label>
+			<span><input type="password" placeholder="password" th:field="${credenziali.password}" /></span>
+			<span th:if="${#fields.hasErrors('credenziali.password')}" th:errors="*{credenziali.password}"></span>
+		</div>
+		
+		<p>
+		<div>
+			<button type="submit">Registra</button>
+		</div>
+		</p>
+	</form>
+	
+</div>
+</body>
+
+</html>

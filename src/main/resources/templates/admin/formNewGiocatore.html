@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+	
+<head>
+	<title> Aggiungi un giocatore - ADMIN </title>	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>	
+	
+	
+<body class="colorPageUpdate">
+	
+
+<div id="giocatore-container">		
+	
+	<h1> Aggiungi un giocatore nel Database</h1>
+	
+	<form th:action="@{'/admin/aggiungiGiocatore'}" method="post" th:object="${giocatore}" >
+		
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+		
+		<p></p>
+		
+		<div>
+		<strong>Nome: </strong>   <input type="text" th:field="*{nome}">
+		<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+		</div>
+		<p></p>
+		<div>
+		<strong>	Cognome:  </strong>  <input type="text" th:field="*{cognome}">
+		<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+		</div>
+		<p></p>
+		<div>
+		<strong>	Anno: </strong>    <input type="text" th:field="*{Anno}">
+		<span th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
+		</div>
+		<p></p>
+		<div>
+		<strong>	Citta: </strong>    <input type="text" th:field="*{Citta}">
+		<span th:if="${#fields.hasErrors('citta')}" th:errors="*{citta}"></span>
+		</div>
+		<p></p>
+		<div>
+		<strong>	Ruolo: </strong>     <input type="text" th:field="*{Ruolo}">
+		<span th:if="${#fields.hasErrors('ruolo')}" th:errors="*{ruolo}"></span>
+		</div>
+		<p>
+			<button type="submit"> Conferma Registrazione Giocatore </button>
+		</p>
+	</form>
+	
+	
+	
+	
+		<form th:action="@{/}" method="get">
+			<button type="submit"> Torna alla HomePage</button>
+		</form>
+	<p></p>
+</div>	
+	
+</body>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

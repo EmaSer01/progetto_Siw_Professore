@@ -1,0 +1,348 @@
+h1 {
+	border-color: green;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#riquadroUtente{
+	border: 3px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	padding: 3px;
+	width: 15%;
+}
+
+
+#riquadroUtente span{
+	font-family: Arial, Helvetica, sans-serif;
+	
+}
+
+.colorPageUtente{
+	background-color: chartreuse;
+}
+
+
+
+/* HOME PAGE ADMIN */
+
+#riquadroAdmin{
+	background-image: url("/images/tricolore.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100px;
+}
+
+.colorPage{
+	background-color: rgb(0, 185, 0);
+}
+
+.colorPageForm{
+	background-color: brown;
+}
+
+
+
+#riquadroAdmin h3{
+	color: red;
+	
+}
+/*FINE*/
+
+
+/*OPERAZIONI ADMIN*/
+
+#formPresidente{
+	
+	border: 4px solid red;
+	height: 250px;
+	padding-bottom: 1px;
+	
+}
+
+
+/*FORM NEW SQUADRA*/
+
+
+#squadra-container{
+	display: flex;
+	border: 4px solid red;
+	flex-direction: column;
+	align-items:center;
+	height: 100%;
+	width: 96%;
+	margin-left: 15px;
+	background-image: url("/images/tricolore.jpg");
+	background-position: -140px;
+	background-color: white;
+	
+}
+
+.button{
+	position: relative;
+	left: 60px;
+	bottom: 21px;
+}
+
+#squadra-container h1{
+	margin-left: 15px;
+}
+
+.posiziona{
+	margin-top: 8%;
+}
+
+div.posiziona button{
+	position: relative;
+	margin-top: 8%;
+	margin-left: 15%;
+}
+
+.button3{
+	position: relative;
+	left: 25%;
+	bottom: 21px;
+}
+
+
+/**/
+
+/*UPDATE-SQADRA*/
+
+#update-container{
+	
+	display: flex;
+	border: 4px solid red;
+	flex-direction: column;
+	align-items:center;
+	height: 100%;
+	width: 96%;
+	margin-top: 30px;
+	margin-left: 15px;
+	background-image: url("/images/tricolore.jpg");
+	background-position: -140px;
+	background-color: white;
+	
+}
+
+#update-container button{
+	margin-top: 1%;
+	margin-bottom: 4pc;
+	
+}
+
+.colorPageUpdate{
+	background-color: rgb(214, 92, 92);
+}
+
+
+/**/
+
+/*GIOCATORE*/
+
+#giocatore-container{
+	
+	display: flex;
+	border: 4px solid red;
+	flex-direction: column;
+	align-items:center;
+	height: 100%;
+	width: 96%;
+	margin-top: 20px;
+	margin-left: 15px;
+	background-image: url("/images/tricolore.jpg");
+	background-position: -140px;
+	background-color: white;
+	
+}
+
+
+.colorPageGiocatore{
+	background-color: rgb(214, 92, 92);
+}
+
+
+/**/
+
+/*PRESIDENTE*/
+
+#presidente-container{
+	
+	display: flex;
+	border: 4px solid red;
+	flex-direction: column;
+	align-items:center;
+	height: 100%;
+	width: 96%;
+	margin-top: 20px;
+	margin-left: 15px;
+	background-image: url("/images/tricolore.jpg");
+	background-position: -140px;
+	background-color: white;
+	
+}
+
+.colorPagePresidente{
+	background-color: rgb(214, 92, 92);
+}
+
+/**/
+
+
+#tesseramento-container{
+	
+	display: flex;
+	border: 4px solid red;
+	flex-direction: column;
+	align-items:center;
+	height: 100%;
+	width: 96%;
+	margin-top: 20px;
+	margin-left: 15px;
+	background-image: url("/images/tricolore.jpg");
+	background-position: -150px;
+	background-color: white;
+	
+}
+
+.colorPageTesseramento{
+	background-color: rgb(214, 92, 92);
+}
+
+/*MENU REGISTRAZIONE*/
+
+#registerMenu {
+	
+  	border: 5px black solid;	
+  	border-radius: 3px;
+	top: 20%;
+	margin-left: 30%;
+	right: 50%;
+	width: 350px;
+	height: 300px;
+	background-color: rgb(192, 192, 192);
+	
+}
+
+#riquadro{
+	
+	border: 3px solid;
+	margin: 30px;
+	width: 60%;
+	background-color: rgb(255, 255, 255);
+	background-image: url("/images/tricolore.jpg");
+	background-position-y: -40px;
+}
+
+.section {
+  width: 90%;
+  height: 50px;
+  background-color: green;
+  margin: 20px;
+  
+}
+
+.titolo{
+	text-align: left;
+	margin-left: 30px;
+	color: rgb(0, 0, 0);
+}
+
+.but{
+	position: relative;
+	margin-left: 90px;
+	bottom: 36.5px;
+}
+
+/*FINE MENU REGISTRAZIONE*/
+
+
+
+
+/* PARTE LOGIN*/
+
+/*da sistemare lo sfondo*/
+
+.c{
+	background-color: rgb(217, 217, 217);
+}
+
+
+
+.sfondoLogin{
+	border: 10px;
+	min-height: 100%;
+	min-width: 100%;
+	}
+
+
+
+#loginMenu{
+	
+  	border: 3px black solid;
+  	position: fixed;	
+	top: 20%;
+	left: 40%;
+	right: 40%;
+	width: 200px;
+	height: 250px;
+	background-color: rgb(192, 192, 192);
+	
+}
+
+.itemLogin{
+	margin:10px;
+}
+
+.itemRegister{
+	margin-bottom:10px;
+	margin-left: 10px;
+}
+
+h1.itemLogin{
+	color: rgb(255, 98, 98);
+	margin:10px;
+}
+
+/*COLORE USERNAME E PASSWORD*/
+.colorUserPass{
+	color: rgb(255, 98, 98);
+}
+/*FINE */
+
+
+span.itemLogin{
+	margin:10px;
+}
+button.itemLogin{
+	border-color: rgb(0, 255, 64);
+	border-radius: 6px;
+}
+span.itemRegister{
+	margin-top:10px;
+}
+button.itemRegister{
+	border-color: rgb(0, 255, 64);
+	border-radius: 6px;
+}
+
+/*FINE PARTE LOGIN*/
+
+/*ERRORI*/
+
+.itemErrori{
+	color: red;
+	margin:10px;
+}
+
+.itemErroriPresidente{
+	color: rgb(0, 0, 0);
+	margin:10px;
+	font-size: large;
+}
+
+/*FINE*/
+
+
+
+

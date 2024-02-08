@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HomePage Presidente</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body  class="colorPage">
+	
+	<header  id="riquadroUtente">
+		<div th:if="${utente}">
+			<a href="/logout">Logout</a>
+			<span  th:text="${utente.username}"></span>
+		</div>
+		<div th:unless="${utente}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+	
+	<h1> HOME PAGE PRESIDENTE: </h1>
+	
+	<p></p>
+	<div th:if="${presidente.getSquadra()==null}"> Spiacente, l'amministratore ancora non ti ha assegnato la squadra!</div>
+	
+	<div th:unless="${presidente.getSquadra()==null}">
+	<h3>Squadra:  <h4 th:text="${squadra.nome}"></h4></h3>
+	
+	
+	<div th:if="${listaTesseramenti.isEmpty()}">Non ci sono giocatori nella squadra.</div>
+	
+	
+	<div th:unless="${listaTesseramenti.isEmpty()}">
+	
+	<ul th:each="tesseramento : ${listaTesseramenti}">
+		<li th:text="${tesseramento.giocatore.nome} + ' ' + ${tesseramento.giocatore.cognome} + ' (' + ${tesseramento.giocatore.ruolo} + ')' + ' [' + ${tesseramento.inizioTesseramento} + ' / ' + ${tesseramento.fineTesseramento}  + ']'"></li>
+		<a th:href="@{'/presidente/esoneraGiocatore/' + ${squadra.nome}  + '/' + ${tesseramento.giocatore.id}}"> Esonera Giocatore </a>
+	</ul>
+	</div>
+	
+
+	
+	<h4> Questi sono i giocatori che puoi ancora tesserare:</h4>
+	<div th:if="${giocatoriNonInSquadra.isEmpty()}">Non ci sono giocatori da tesserare.</div>
+	
+	<div th:unless="${giocatoriNonInSquadra.isEmpty()}">
+	<ul th:each="giocatore : ${giocatoriNonInSquadra}">
+		<li>
+			<a th:href="@{'/' + ${squadra.id} + '/' + ${giocatore.nome} + '/' + ${giocatore.cognome} + '/' + ${giocatore.ruolo}}"
+			   th:text="${giocatore.nome} + ' ' + ${giocatore.cognome} + ' (' + ${giocatore.ruolo} + ')'"></a>
+		</li>
+	</ul>
+	</div>
+	</div>
+	
+	
+</body>
+
+</html>
